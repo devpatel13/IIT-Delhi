@@ -1,0 +1,15 @@
+# Ignore huge datasets
+*.txt
+*.data
+*.graph
+data/
+
+# Ignore Python cache & build files
+__pycache__/
+*.pyc
+
+# Ignore assignment outputs
+*.vectors
+candidates.dat
+patterns.txt
+gspan_temp_out.txt
