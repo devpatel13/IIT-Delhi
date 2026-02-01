@@ -1,17 +1,18 @@
 #!/bin/bash
-# identify.sh <path_graph_dataset> <path_discriminative_subgraphs>
-
-# 1. Load Environment (Fixes Python path)
+# identify.sh
 source ./env.sh
 
 INPUT_DATASET=$1
 OUTPUT_SUBGRAPHS=$2
 
-# 2. Clean Data (preprocess.py)
+# 1. Clean Duplicates
+echo "Preprocessing..."
 $PYTHON_CMD preprocess.py "$INPUT_DATASET" "temp_unique.data"
 
-# 3. Mine Patterns (miner.py)
+# 2. Mine Patterns
+echo "Mining..."
 $PYTHON_CMD miner.py "temp_unique.data" "$OUTPUT_SUBGRAPHS"
 
-# 4. Cleanup
+# 3. Cleanup
 rm temp_unique.data gspan_temp_out.txt 2> /dev/null
+
